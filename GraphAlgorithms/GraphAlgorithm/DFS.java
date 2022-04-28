@@ -1,11 +1,11 @@
 package GraphAlgorithm;
 
-/*
+/**
  * @className: DFS
  * @description: TODO 类描述
  * @author: YORE
  * @date: 2022/4/28
- */
+ **/
 
 import GraphAlgorithm.Graph.*;
 
