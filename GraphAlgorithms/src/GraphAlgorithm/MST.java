@@ -23,7 +23,7 @@ public class MST extends GraphAlgorithm<MST.MSTVertex>{
 
     // Debug define class
     public interface Debug {
-        boolean DEBUG_PRINT = false;
+        boolean DEBUG_PRINT = true;
         boolean TEST_PRINT = true;
         boolean PRINT = true;
     }
@@ -62,6 +62,7 @@ public class MST extends GraphAlgorithm<MST.MSTVertex>{
         MST m = new MST(g);
         m.algorithm = "Kruskal";
         Edge[] edgeArray = g.getEdgeArray();
+
         return m;
     }
 
@@ -195,7 +196,7 @@ public class MST extends GraphAlgorithm<MST.MSTVertex>{
         Graph g = Graph.readGraph(in);
         g.printGraph(true);
 
-        Vertex s = g.getVertex(6);
+        Vertex s = g.getVertex(1);
 
         Timer timer = new Timer();
         MST m = mst(g, s, choice);
