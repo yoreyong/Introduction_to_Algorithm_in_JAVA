@@ -460,7 +460,7 @@ public class Graph implements Iterable<Graph.Vertex> {
         return arr;
     }
 
-    //TODO
+    //
     public Edge[] getEdgeArray() {
         Edge[] edgeArray = new Edge[edgeSize()];
         int index = 0;
@@ -476,7 +476,7 @@ public class Graph implements Iterable<Graph.Vertex> {
         return edgeArray;
     }
 
-    /**TODO
+    /**
      * @className: GraphIterator -
      * @description: Nested class: Iterator class for the vertices of a graph.
      */

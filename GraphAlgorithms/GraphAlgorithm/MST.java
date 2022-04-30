@@ -9,12 +9,13 @@ package GraphAlgorithm;
 
 import GraphAlgorithm.Graph.*;
 
-import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 
 
 public class MST extends GraphAlgorithm<MST.MSTVertex>{
+    public static final int INFINITY = Integer.MAX_VALUE;
+
     String algorithm;
     public long wmst;               // weight of MST
     public LinkedList<Edge> mst;    // MST
@@ -42,6 +43,7 @@ public class MST extends GraphAlgorithm<MST.MSTVertex>{
      */
     public static class MSTVertex implements Comparable<MSTVertex>, Factory {
         boolean seen;
+        long distance;
         Vertex parent;
 
         public MSTVertex(Vertex u) {
@@ -63,6 +65,9 @@ public class MST extends GraphAlgorithm<MST.MSTVertex>{
         return m;
     }
 
+    /**
+     * @description: Method: MST - Prim with PriorityQueue.
+     */
     public  static MST prim(Graph g, Vertex s) {
         MST m = new MST(g);
         m.algorithm = "Prim with PriorityQueue<Edge>";
@@ -108,8 +113,36 @@ public class MST extends GraphAlgorithm<MST.MSTVertex>{
                 if(Debug.DEBUG_PRINT) m.printPQ(q);
             }
         }
+
+        if(Debug.PRINT) m.print_mst(m.mst);
         return m;
     }
+
+    /**
+     * @description: Method: MST - Prim with indexed priority queue of vertices.
+     */
+    public static MST prim2(Graph g, Vertex s) {
+        MST m = new MST(g);
+        m.algorithm = "Prim with indexed priority queue<Vertex>";
+        m.wmst = 0;
+        m.mst = new LinkedList<>();
+
+        for(Vertex u : g) {
+            m.get(u).seen = false;
+            m.get(u).parent = null;
+            m.get(u).distance = INFINITY;
+        }
+
+        m.get(s).seen = true;
+        m.get(s).distance = 0;
+        m.wmst = 0;
+
+        // TODO: Indexed priority queue
+
+
+        return m;
+    }
+
 
     // No changes need to be made below this
 
@@ -127,11 +160,23 @@ public class MST extends GraphAlgorithm<MST.MSTVertex>{
     public void printPQ(PriorityQueue<Edge> pq) {
         PriorityQueue<Edge> p  = new PriorityQueue<>(pq);
         System.out.println("______________________________________________");
-        System.out.print("Priority Queue = [ ");
+        System.out.print("Priority Queue = { ");
         while(!p.isEmpty()) {
-            System.out.print(p.remove() + " ");
+            Edge e = p.remove();
+            System.out.print(e + "[" + e.getWeight() + "] ");
         }
-        System.out.println();
+        System.out.println("}");
+    }
+
+    public void print_mst(LinkedList<Edge> edge) {
+        LinkedList<Edge> e = new LinkedList<>(edge);
+        System.out.println("______________________________________________");
+        System.out.print("MST = { ");
+        while(!e.isEmpty()) {
+            Edge e1 = e.remove();
+            System.out.print(e1 + "[" + e1.getWeight() + "] ");
+        }
+        System.out.println("}");
     }
 
 
