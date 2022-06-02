@@ -9,8 +9,10 @@ package GraphAlgorithm;
 
 import GraphAlgorithm.Graph.*;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 
 public class MST extends GraphAlgorithm<MST.MSTVertex>{
@@ -23,9 +25,31 @@ public class MST extends GraphAlgorithm<MST.MSTVertex>{
 
     // Debug define class
     public interface Debug {
-        boolean DEBUG_PRINT = true;
+        boolean DEBUG_PRINT = false;
         boolean TEST_PRINT = true;
         boolean PRINT = true;
+    }
+
+    class PrimeVertex implements Comparable<PrimeVertex>, Factory {
+        int index;
+
+        public void putIndex(int index) {
+            this.index = index;
+        }
+
+        public int getIndex() {
+            return index;
+        }
+
+        @Override
+        public Factory make(Vertex u) {
+            return null;
+        }
+
+        @Override
+        public int compareTo(PrimeVertex o) {
+            return 0;
+        }
     }
 
     /*
@@ -45,6 +69,9 @@ public class MST extends GraphAlgorithm<MST.MSTVertex>{
         boolean seen;
         long distance;
         Vertex parent;
+        int rank;
+
+        int index;
 
         public MSTVertex(Vertex u) {
             seen = false;
@@ -56,7 +83,29 @@ public class MST extends GraphAlgorithm<MST.MSTVertex>{
         public int compareTo(MSTVertex other) {
             return 0;
         }
+
+        public void putIndex(int index) { this.index = index; }
+
+        public int getIndex() { return index; }
     }
+
+    public void makeSet(Vertex u) {    // make set
+
+    }
+
+    public Vertex find() {
+        Vertex r = null;
+
+        return r;
+    }
+
+    public void union(Vertex rv) {
+//        if(get(this).rank > get(rv).rank) {
+//
+//        }
+    }
+
+
 
     public static MST kruskal(Graph g) {
         MST m = new MST(g);
@@ -83,7 +132,7 @@ public class MST extends GraphAlgorithm<MST.MSTVertex>{
         m.get(s).seen = true;
         mstV.add(s);
 
-        PriorityQueue<Edge> q = new PriorityQueue<>();
+        Queue<Edge> q = new PriorityQueue<>();
         for(Edge e : g.incident(s)) {
             q.add(e);
         }
@@ -128,6 +177,7 @@ public class MST extends GraphAlgorithm<MST.MSTVertex>{
         m.wmst = 0;
         m.mst = new LinkedList<>();
 
+        // Initialize v
         for(Vertex u : g) {
             m.get(u).seen = false;
             m.get(u).parent = null;
@@ -158,8 +208,8 @@ public class MST extends GraphAlgorithm<MST.MSTVertex>{
     /*
      * Method: Help Method - print priority queue.
      */
-    public void printPQ(PriorityQueue<Edge> pq) {
-        PriorityQueue<Edge> p  = new PriorityQueue<>(pq);
+    public void printPQ(Queue<Edge> pq) {
+        Queue<Edge> p  = new PriorityQueue<>(pq);
         System.out.println("______________________________________________");
         System.out.print("Priority Queue = { ");
         while(!p.isEmpty()) {
