@@ -75,6 +75,8 @@ public class ID3 {
                     if(Debug.TEST_PRINT) System.out.println();
                     continue;
                 }
+
+
             }
         } catch(Exception e) {
             e.printStackTrace();
