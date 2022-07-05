@@ -3,9 +3,9 @@
  */
 
 // change dsa to your netid
-package GraphAlgorithm;
+package pers.yore.graph;
 
-import GraphAlgorithm.Graph.*;
+import pers.yore.graph.Graph.*;
 
 import java.io.File;
 import java.util.ArrayDeque;

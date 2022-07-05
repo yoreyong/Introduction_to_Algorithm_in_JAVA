@@ -1,4 +1,4 @@
-package GraphAlgorithm;
+package pers.yore.graph;
 
 /*
  * @className: Graph

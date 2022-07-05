@@ -1,4 +1,4 @@
-package GraphAlgorithm;
+package pers.yore.graph;
 
 /**
  * @className: MST - minimum spanning tree
@@ -7,7 +7,7 @@ package GraphAlgorithm;
  * @date: 2022/4/28
  **/
 
-import GraphAlgorithm.Graph.*;
+import pers.yore.graph.Graph.*;
 
 import java.util.LinkedList;
 import java.util.PriorityQueue;

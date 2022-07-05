@@ -1,4 +1,4 @@
-package GraphAlgorithm;
+package pers.yore.graph;
 
 /**
  * @className: DFS
@@ -7,7 +7,7 @@ package GraphAlgorithm;
  * @date: 2022/4/28
  **/
 
-import GraphAlgorithm.Graph.*;
+import pers.yore.graph.Graph.*;
 
 import java.io.File;
 import java.util.ArrayDeque;

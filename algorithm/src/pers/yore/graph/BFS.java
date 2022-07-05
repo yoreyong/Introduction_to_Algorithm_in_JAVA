@@ -1,11 +1,11 @@
-package GraphAlgorithm;
+package pers.yore.graph;
 
 /* Breadth-first search
  *  @author rbk
  *  Version 1.0: 2018/10/16
  */
 
-import GraphAlgorithm.Graph.*;
+import pers.yore.graph.Graph.*;
 
 import java.io.File;
 import java.util.LinkedList;
